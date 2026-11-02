@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takenlijst</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <header class="header">
+        <img class="logo" src="logo/chiefs-of-it.png" alt="Chiefs of IT">
+        <h1>Takenlijst</h1>
+    </header>
+
+    <section class="takenlijst">
+        <h3>Taken</h3>
+        <form id="taak-form" novalidate>
+            <label for="titelbox"><h4>Titel</h4></label>
+            <input id="titelbox" type="text" maxlength="60" autocomplete="off">
+
+            <label for="beschrijvingbox"><h4>Beschrijving</h4></label>
+            <textarea id="beschrijvingbox" maxlength="500"></textarea>
+            <button id="taak-toevoegen" type="submit">Taak toevoegen</button>
+            <p id="fout" role="alert"></p>
+        </form>
+    </section>
+
+    <section class="checkboxen">
+        <button type="button" class="filter" data-filter="alle">Alle taken</button>
+        <button type="button" class="filter" data-filter="open">Openstaand</button>
+        <button type="button" class="filter" data-filter="klaar">Afgerond</button>
+    </section>
+
+    <ul id="taken-overzicht"></ul>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
