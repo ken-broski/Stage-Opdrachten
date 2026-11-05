@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Beheer | Buurthuis Gultekin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-shell">
+  <header class="site-header admin-header">
+    <a class="brand" href="/" aria-label="Buurthuis Gultekin, naar de activiteiten">
+      <span class="brand-mark" aria-hidden="true">BG</span>
+      <span><strong>Buurthuis Gultekin</strong><small>Beheeromgeving</small></span>
+    </a>
+    <nav aria-label="Hoofdnavigatie">
+      <a class="button button-small button-outline" href="/">Naar de website</a>
+    </nav>
+  </header>
+
+  <main class="admin-main">
+    <section id="login-view" class="login-card" hidden aria-labelledby="login-title">
+      <p class="eyebrow">Medewerkers</p>
+      <h1 id="login-title">Welkom terug.</h1>
+      <p>Log in om activiteiten en aanmeldingen van Buurthuis Gultekin te beheren.</p>
+      <form id="login-form">
+        <label class="form-field">
+          E-mailadres
+          <input name="email" type="email" autocomplete="username" required maxlength="254">
+        </label>
+        <label class="form-field">
+          Wachtwoord
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <p id="login-message" class="admin-message" role="alert"></p>
+        <button class="button" type="submit">Inloggen</button>
+      </form>
+      <a class="login-back" href="/">← Terug naar de activiteiten</a>
+    </section>
+
+    <section id="admin-view" hidden>
+      <div class="admin-title-row">
+        <div>
+          <p class="eyebrow">Buurthuis Gultekin · beheer</p>
+          <h1>Goedendag!</h1>
+          <p id="welcome-email"></p>
+        </div>
+        <button id="logout-button" class="button button-outline button-small" type="button">Uitloggen</button>
+      </div>
+
+      <section class="dashboard-cards" aria-label="Dashboard">
+        <article class="stat-card">
+          <span>Toekomstige activiteiten</span>
+          <strong id="upcoming-count">—</strong>
+        </article>
+        <article class="stat-card">
+          <span>Actieve aanmeldingen</span>
+          <strong id="registration-count">—</strong>
+        </article>
+      </section>
+
+      <section class="admin-panel reset-panel" aria-labelledby="reset-heading">
+        <div>
+          <h2 id="reset-heading">Opnieuw beginnen met testen</h2>
+          <p>Verwijder alle aanmeldingen. Activiteiten en categorieën blijven staan en krijgen hun vrije plekken terug.</p>
+        </div>
+        <button id="reset-registrations" class="button button-danger button-small" type="button">Alle aanmeldingen wissen</button>
+        <p id="reset-message" class="admin-message" role="status"></p>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="events-heading">
+        <h2 id="events-heading">Activiteiten</h2>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Activiteit</th>
+                <th>Datum</th>
+                <th>Status</th>
+                <th>Plekken</th>
+                <th>Beheer</th>
+              </tr>
+            </thead>
+            <tbody id="events-table"></tbody>
+          </table>
+        </div>
+        <div id="participants-panel" class="participant-list" hidden></div>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="event-form-heading">
+        <h2 id="event-form-heading">Nieuwe activiteit</h2>
+        <form id="event-form">
+          <div class="admin-form-grid">
+            <label class="form-field">
+              Titel
+              <input name="title" type="text" required maxlength="150">
+            </label>
+            <label class="form-field">
+              Categorie
+              <select name="category_id" required></select>
+            </label>
+            <label class="form-field">
+              Datum en tijd
+              <input name="date_time" type="datetime-local" required>
+            </label>
+            <label class="form-field">
+              Locatie
+              <input name="location" type="text" required maxlength="200">
+            </label>
+            <label class="form-field">
+              Maximumaantal deelnemers
+              <input name="capacity" type="number" min="1" step="1" required>
+            </label>
+            <label class="form-field">
+              Status
+              <select name="status" required>
+                <option value="draft">Concept</option>
+                <option value="published">Gepubliceerd</option>
+                <option value="cancelled">Geannuleerd</option>
+              </select>
+            </label>
+            <label class="form-field wide">
+              Afbeeldingslink (optioneel)
+              <input name="image_url" type="url" placeholder="https://…">
+            </label>
+            <label class="form-field wide">
+              Beschrijving
+              <textarea name="description" required maxlength="5000"></textarea>
+            </label>
+          </div>
+          <div class="admin-actions">
+            <button id="save-event" class="button" type="submit">Activiteit toevoegen</button>
+            <button id="cancel-edit" class="cancel-button" type="button" hidden>Wijzigen annuleren</button>
+          </div>
+          <p id="event-message" class="admin-message" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="admin-panel" aria-labelledby="categories-heading">
+        <h2 id="categories-heading">Categorieën</h2>
+        <form id="category-form" class="category-form">
+          <label class="form-field">
+            Categorienaam
+            <input name="name" type="text" required maxlength="80">
+          </label>
+          <button id="save-category" class="button button-small" type="submit">Categorie toevoegen</button>
+          <button id="cancel-category-edit" class="cancel-button" type="button" hidden>Annuleren</button>
+        </form>
+        <p id="category-message" class="admin-message" role="alert"></p>
+        <div id="category-list" class="category-list"></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

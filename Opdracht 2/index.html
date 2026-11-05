@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="Ontdek workshops, lezingen en activiteiten in Buurthuis Gultekin.">
+  <title>Activiteiten | Buurthuis Gultekin</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ga naar de activiteiten</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Buurthuis Gultekin, naar de activiteiten">
+      <span class="brand-mark" aria-hidden="true">BG</span>
+      <span><strong>Buurthuis Gultekin</strong><small>Activiteiten voor iedereen</small></span>
+    </a>
+    <nav aria-label="Hoofdnavigatie">
+      <a class="nav-link" href="#activiteiten">Activiteiten</a>
+      <a class="button button-small button-outline" href="/beheer">Medewerkers</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Welkom bij ons buurthuis</p>
+        <h1>Ontdek activiteiten<br><em>in de buurt</em></h1>
+        <p class="hero-intro">Bekijk welke workshops, lezingen en andere activiteiten binnenkort plaatsvinden. Je kunt gratis meedoen en je meteen aanmelden.</p>
+        <a class="button" href="#activiteiten">Bekijk alle activiteiten</a>
+      </div>
+      <div class="hero-info">
+        <h2>Er is van alles te doen</h2>
+        <ul>
+          <li><span aria-hidden="true">01</span> Creatieve workshops</li>
+          <li><span aria-hidden="true">02</span> Lezingen en gesprekken</li>
+          <li><span aria-hidden="true">03</span> Gezellige buurtactiviteiten</li>
+        </ul>
+        <p>Iedereen is welkom. Aanmelden is gratis.</p>
+      </div>
+    </section>
+
+    <section class="activities section-wrap" id="activiteiten" aria-labelledby="activities-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">Agenda</p><h2 id="activities-title">Binnenkort bij ons</h2></div>
+        <p class="section-note">Alle activiteiten zijn gratis.</p>
+      </div>
+      <form id="filters" class="filters" role="search">
+        <label class="search-field">
+          <span class="sr-only">Zoek op titel</span>
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Waar heb je zin in?" autocomplete="off">
+        </label>
+        <label class="select-field">
+          <span class="sr-only">Filter op categorie</span>
+          <select id="category">
+            <option value="">Alle activiteiten</option>
+          </select>
+          <span aria-hidden="true">⌄</span>
+        </label>
+      </form>
+      <p id="list-status" class="result-count" aria-live="polite"></p>
+      <div id="event-list" class="event-grid" aria-live="polite"></div>
+      <div id="empty-state" class="empty-state" hidden>
+        <span aria-hidden="true">?</span>
+        <h3>Geen activiteiten gevonden</h3>
+        <p>Probeer een andere zoekterm of kies een andere categorie.</p>
+        <button class="text-button" id="clear-filters" type="button">Wis de filters</button>
+      </div>
+    </section>
+
+    <section class="about-band">
+      <div class="about-symbol" aria-hidden="true">i</div>
+      <div>
+        <p class="eyebrow">Over het buurthuis</p>
+        <h2>Een plek om samen te komen</h2>
+      </div>
+      <p>In Buurthuis Gultekin worden activiteiten georganiseerd voor mensen uit de buurt. Kijk wat er te doen is en meld je aan.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <a class="brand brand-footer" href="/">
+        <span class="brand-mark" aria-hidden="true">BG</span>
+        <span>
+          <strong>Buurthuis Gultekin</strong>
+          <small>Activiteiten voor iedereen</small>
+        </span>
+      </a>
+      <div class="footer-section">
+        <h2>Contact</h2>
+        <address class="footer-contact">
+          <a href="mailto:werk.hgken@gmail.com">werk.hgken@gmail.com</a>
+          <a href="tel:+31648688286">+31648688286</a>
+        </address>
+      </div>
+    </div>
+    <p class="footer-bottom">© Buurthuis Gultekin</p>
+  </footer>
+  <dialog id="event-dialog" class="event-dialog" aria-labelledby="dialog-title">
+    <div id="dialog-content"></div>
+  </dialog>
+</body>
+</html>

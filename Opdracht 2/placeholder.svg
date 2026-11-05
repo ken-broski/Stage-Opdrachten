@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" role="img" aria-label="Illustratie van een gezellige buurtactiviteit">
+  <rect width="900" height="440" fill="#e8f0fa"/>
+  <circle cx="735" cy="95" r="70" fill="#f5c181"/>
+  <path d="M0 350Q220 290 450 350t450 0v90H0z" fill="#cbd9e9"/>
+  <rect x="130" y="115" width="170" height="178" rx="80" fill="#527daf"/>
+  <circle cx="215" cy="105" r="48" fill="#d18a68"/>
+  <rect x="374" y="98" width="178" height="198" rx="86" fill="#efaa63"/>
+  <circle cx="462" cy="85" r="49" fill="#604638"/>
+  <rect x="610" y="126" width="160" height="168" rx="78" fill="#7c9cba"/>
+  <circle cx="689" cy="113" r="46" fill="#c98765"/>
+  <ellipse cx="450" cy="300" rx="390" ry="70" fill="#bd825c"/>
+  <path d="M170 298v125M730 298v125" stroke="#976547" stroke-width="22" stroke-linecap="round"/>
+  <path d="M330 278v-43h35v43M565 278v-43h35v43" fill="#fff"/>
+  <path d="M115 265v-80m0 35q-32-18-37-45 38 5 48 31m-12 35q28-25 56-17-13 30-47 34" fill="none" stroke="#527daf" stroke-width="8" stroke-linecap="round"/>
+</svg>
